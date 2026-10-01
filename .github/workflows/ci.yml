@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - feature
+      - ci-break-test
   pull_request:
     branches:
       - main
@@ -28,3 +29,6 @@ jobs:
 
       - name: Check Expo project
         run: npx expo-doctor
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
