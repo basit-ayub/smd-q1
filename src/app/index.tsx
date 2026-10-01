@@ -1,32 +1,12 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image } from "expo-image";
+import { Platform, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { AnimatedIcon } from "@/components/animated-icon";
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import { WebBadge } from "@/components/web-badge";
+import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
 
 export default function HomeScreen() {
   return (
@@ -40,35 +20,21 @@ export default function HomeScreen() {
           </ThemedText>
 
           <ThemedText style={styles.studentInfo}>
-            <ThemedText style={styles.boldText}>
-              Name: Abdul Basit
-            </ThemedText>
+            <ThemedText style={styles.boldText}>Name: Abdul Basit</ThemedText>
           </ThemedText>
 
           <ThemedText style={styles.studentInfo}>
-            <ThemedText style={styles.boldText}>
-              Roll No: 23i-3018
-            </ThemedText>
+            <ThemedText style={styles.boldText}>Roll No: 23i-3018</ThemedText>
           </ThemedText>
-        </ThemedView>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
+          <Image
+            source={require("@/assets/images/cat.jpg")}
+            contentFit="cover"
+            style={styles.catImage}
           />
         </ThemedView>
 
-        {Platform.OS === 'web' && <WebBadge />}
+        {Platform.OS === "web" && <WebBadge />}
       </SafeAreaView>
     </ThemedView>
   );
@@ -77,43 +43,38 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+    justifyContent: "center",
+    flexDirection: "row",
   },
   safeArea: {
     flex: 1,
     paddingHorizontal: Spacing.four,
-    alignItems: 'center',
+    alignItems: "center",
     gap: Spacing.three,
     paddingBottom: BottomTabInset + Spacing.three,
     maxWidth: MaxContentWidth,
   },
   heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     flex: 1,
     paddingHorizontal: Spacing.four,
     gap: Spacing.four,
   },
   title: {
-    textAlign: 'center',
+    textAlign: "center",
   },
 
-studentInfo: {
-  textAlign: 'center',
-},
-
-boldText: {
-  fontWeight: 'bold',
-},
-  code: {
-    textTransform: 'uppercase',
+  studentInfo: {
+    textAlign: "center",
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+
+  boldText: {
+    fontWeight: "bold",
+  },
+  catImage: {
+    width: 180,
+    height: 240,
+    borderRadius: Spacing.three,
   },
 });
