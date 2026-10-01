@@ -34,8 +34,21 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
           <AnimatedIcon />
+
           <ThemedText type="title" style={styles.title}>
             Welcome to&nbsp;Expo
+          </ThemedText>
+
+          <ThemedText style={styles.studentInfo}>
+            <ThemedText style={styles.boldText}>
+              Name: Abdul Basit
+            </ThemedText>
+          </ThemedText>
+
+          <ThemedText style={styles.studentInfo}>
+            <ThemedText style={styles.boldText}>
+              Roll No: 23i-3018
+            </ThemedText>
           </ThemedText>
         </ThemedView>
 
@@ -85,6 +98,14 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
   },
+
+studentInfo: {
+  textAlign: 'center',
+},
+
+boldText: {
+  fontWeight: 'bold',
+},
   code: {
     textTransform: 'uppercase',
   },
