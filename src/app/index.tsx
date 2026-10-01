@@ -17,7 +17,7 @@ export default function HomeScreen() {
 
           <ThemedText type="title" style={styles.title}>
             Welcome to&nbsp;Expo
-          </ThemedText
+          </ThemedText>
 
           <ThemedText style={styles.studentInfo}>
             <ThemedText style={styles.boldText}>Name: Abdul Basit</ThemedText>
